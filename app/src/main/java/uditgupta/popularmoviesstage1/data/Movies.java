@@ -1,5 +1,6 @@
 package uditgupta.popularmoviesstage1.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
@@ -65,6 +66,18 @@ public class Movies {
 	@Expose
 	@SerializedName("vote_count")
 	int voteCount;
+
+	List<MovieImage> imageUrls = new ArrayList<>();
+
+	public List<MovieImage> getImageUrls() {
+		imageUrls.add(new MovieImage(posterPath, MovieImage.ImageSize.w92));
+		imageUrls.add(new MovieImage(posterPath,MovieImage.ImageSize.w));
+		imageUrls.add(new MovieImage(posterPath,MovieImage.ImageSize.w342));
+		imageUrls.add(new MovieImage(posterPath,MovieImage.ImageSize.w500));
+		imageUrls.add(new MovieImage(posterPath,MovieImage.ImageSize.w780));
+		return imageUrls;
+	}
+
 
 	public boolean isAdult() {
 		return adult;
